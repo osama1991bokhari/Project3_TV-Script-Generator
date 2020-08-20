@@ -158,7 +158,7 @@ def test_rnn(RNN, train_on_gpu):
         rnn.cuda()
         b = b.cuda()
     
-    output, hidden_out = rnn(b, hidden)
+    output, hidden_out = rnn(b.type(torch.LongTensor), hidden)
     
     assert_test = AssertTest({
                              'Input Size': vocab_size,
